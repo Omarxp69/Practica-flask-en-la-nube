@@ -45,13 +45,6 @@ def page_not_found(e):
 @app.route('/')
 @logout_required
 def raiz():
-    print("=== Variables de entorno ===")
-    print("MYSQLHOST:", os.environ.get('MYSQLHOST'))
-    print("MYSQLUSER:", os.environ.get('MYSQLUSER'))
-    print("MYSQLPASSWORD:", os.environ.get('MYSQLPASSWORD'))
-    print("MYSQLDATABASE:", os.environ.get('MYSQLDATABASE'))
-    print("MYSQLPORT:", os.environ.get('MYSQLPORT'))
-    print("============================")
     return redirect(url_for('login'))
 
 @app.route('/registrar', methods=['GET','POST'])
