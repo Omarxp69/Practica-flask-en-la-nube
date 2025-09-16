@@ -1,10 +1,12 @@
 from flask import Flask,render_template,make_response,redirect,request,flash,url_for,session
 import bcrypt
-
 from conexion_db import insertar_usuario,obtener_usuario_por_username,obtener_todos_usuarios
-
 from functools import wraps
 import os
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 
 app = Flask(__name__)
@@ -43,6 +45,13 @@ def page_not_found(e):
 @app.route('/')
 @logout_required
 def raiz():
+    print("=== Variables de entorno ===")
+    print("MYSQLHOST:", os.environ.get('MYSQLHOST'))
+    print("MYSQLUSER:", os.environ.get('MYSQLUSER'))
+    print("MYSQLPASSWORD:", os.environ.get('MYSQLPASSWORD'))
+    print("MYSQLDATABASE:", os.environ.get('MYSQLDATABASE'))
+    print("MYSQLPORT:", os.environ.get('MYSQLPORT'))
+    print("============================")
     return redirect(url_for('login'))
 
 @app.route('/registrar', methods=['GET','POST'])

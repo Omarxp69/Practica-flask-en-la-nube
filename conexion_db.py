@@ -1,33 +1,21 @@
 import mysql.connector
 import os
+from dotenv import load_dotenv
 
-# def get_connection():
-#     conexion = mysql.connector.connect(
-#     host="localhost",
-#     user='root',
-#     password='Guada_xp69@3',
-#     database="pythonflask"
-#     )
-#     return conexion
+load_dotenv()  # Esto carga las variables de tu archivo .env a os.environ
 
-# def get_connection():
-#     conexion = mysql.connector.connect(
-#     host="crossover.proxy.rlwy.net",
-#     user='root',
-#     password='gXzKWOUKgRfhZPechGJvDRfjikESKknh',
-#     database="railway",
-#     port=57103
-#     )
-#     return conexion
 
-conexion = mysql.connector.connect(
+def get_connection():
+    conexion = mysql.connector.connect(
     host=os.environ.get('MYSQLHOST'),
     user=os.environ.get('MYSQLUSER'),
     password=os.environ.get('MYSQLPASSWORD'),
     database=os.environ.get('MYSQLDATABASE'),
+    port=os.environ.get('MYSQLPORT')
+    )
+    print("Variables de entorno")
     port=int(os.environ.get('MYSQLPORT', 3306))
-)
-
+    return conexion
 
 
 
