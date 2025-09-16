@@ -8,7 +8,7 @@ import os
 
 
 app = Flask(__name__)
-app.secret_key = os.urandom(24)  # 👈 Esto soluciona el error
+app.secret_key = os.environ.get("SECRET_KEY", os.urandom(24))
 
 
 def role_required(rol):
