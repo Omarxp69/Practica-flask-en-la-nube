@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login compucheck</title>
+  <link rel="stylesheet" href="../static/css/styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Login compucheck</h1>
+    <form class="form" method="POST">
+      <label for="entry1" class="form_label">Username:</label>
+      <input type="text" name="username" id="entry"><br>
+
+      <label for="entry3" class="form_label">Password:</label>
+      <input type="password" name="password" id="entry3"><br>
+
+      <div class="buttons">
+        <button type="submit">Enviar</button>
+      </div>
+      <a href="/registrar">Registrate</a>
+    </form>
+    <div>
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          <ul class="flash-messages">
+            {% for message in messages %}
+              <li>{{ message }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      {% endwith %}
+    </div>
+</body>
+</html>

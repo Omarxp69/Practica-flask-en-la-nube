@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Usuario</title>
+    <link rel="stylesheet" href="../static/css/dashboardstyles.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <h2>Mi Aplicación</h2>
+            <ul>
+                <li><a href="{{ url_for('user_dashboard') }}">Inicio</a></li>
+                <li><a href="{{ url_for('logout') }}">Cerrar sesión</a></li>
+            </ul>
+        </aside>
+        <main class="dashboard-main">
+            <header>
+                <h1>Bienvenido, {{ session['username'] }}</h1>
+                <p>Panel de usuario - Información general.</p>
+            </header>
+            <section class="cards">
+                <div class="card">
+                    <h3>Notificaciones</h3>
+                    <p>Tienes 3 notificaciones nuevas.</p>
+                </div>
+                <div class="card">
+                    <h3>Actividad Reciente</h3>
+                    <p>Has iniciado sesión hace 2 días.</p>
+                </div>
+            </section>
+        </main>
+    </div>
+    <footer>
+        <p>&copy; 2025 Mi Aplicación</p>
+    </footer>
+</body>
+</html>

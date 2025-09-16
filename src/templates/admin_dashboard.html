@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración</title>
+    <link rel="stylesheet" href="../static/css/dashboardstyles.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar admin">
+            <h2>Panel Admin</h2>
+            <ul>
+                <li><a href="{{ url_for('admin_dashboard') }}">Inicio</a></li>
+                <li><a href="{{ url_for('logout') }}">Cerrar sesión</a></li>
+            </ul>
+        </aside>
+        <main class="dashboard-main">
+            <header>
+                <h1>Bienvenido, {{ session['username'] }}</h1>
+                <p>Panel de administración - Control total de la aplicación.</p>
+            </header>
+            <section class="cards">
+                <div class="card">
+                    <h3>Total Usuarios</h3>
+                    <p>125 registrados</p>
+                </div>
+                <div class="card">
+                    <h3>Reportes Recientes</h3>
+                    <p>3 reportes nuevos pendientes</p>
+                </div>
+            </section>
+        </main>
+    </div>
+    <footer>
+        <p>&copy; 2025 Mi Aplicación</p>
+    </footer>
+</body>
+</html>
